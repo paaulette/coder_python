@@ -1,0 +1,27 @@
+[
+    {
+        "1":{
+            "nombre_producto": "chocolate",
+            "precio": 10,
+            "stock": 50
+        }
+    },{
+        "2":{
+            "nombre_producto": "chicle",
+            "precio": 3,
+            "stock": 50
+        }
+    },{
+        "3":{
+            "nombre_producto": "caramelo",
+            "precio": 1,
+            "stock": 200
+        }
+    },{
+        "4":{
+            "nombre_producto": "gaseosa",
+            "precio": 50,
+            "stock": 30
+        }
+    }
+]

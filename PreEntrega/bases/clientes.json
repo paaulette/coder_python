@@ -1,0 +1,18 @@
+{
+    "pbarro":{
+        "nombre": "Paula",
+        "apellido": "Barro",
+        "dni": "36398002",
+        "domicilio": "Av. J. B. Alberdi 1663",
+        "clave": "1234",
+        "historial": []
+    },
+    "fatato":{
+        "nombre": "Rodrigo",
+        "apellido": "Fautario",
+        "dni": "32507472",
+        "domicilio": "Av. J. B. Alberdi 1663",
+        "clave": "1234",
+        "historial": []
+    }
+}
