@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://appseed.us/admin-dashboards/django-dashboard-argon">
+  
+  <title>
+    Tercera pre-entrega Curso Python por Paula Barro - {% block title %}{% endblock title %}
+  </title>
+
+  <!-- Favicon - loaded as static -->
+  <link rel="icon" href="{% static 'assets/img/brand/favicon.png' %}" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Icons -->
+  <link rel="stylesheet" href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
+  <!-- Page plugins -->
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/argon.css' %}" type="text/css">
+
+  <!-- Specific CSS goes HERE -->
+  {% block stylesheets %}{% endblock stylesheets %}
+
+</head>
+
+<body class="">
+  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+      <!-- Brand -->
+      <div class="sidenav-header  align-items-center">
+        <a class="navbar-brand" href="/">
+          <img src="{% static 'assets/img/logo-inicio.jpg' %}" class="navbar-brand-img">
+        </a>
+      </div>
+      <div class="navbar-inner">
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+          <!-- Nav items -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link {% if 'index' in segment %} active {% endif %}" href="{% url 'index' %}">
+                <i class="ni ni-tv-2 text-primary"></i>
+                <span class="nav-link-text">Inicio</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'cliente' in segment %} active {% endif %}" href="{% url 'cliente' %}">
+                <i class="ni ni-basket text-orange"></i>
+                <span class="nav-link-text">Crear Cliente</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'productos' in segment %} active {% endif %}" href="{% url 'productos' %}">
+                <i class="ni ni-cart text-primary"></i>
+                <span class="nav-link-text">Productos</span>
+              </a>
+            </li>
+  
+            {% comment %} <li class="nav-item"> {% endcomment %}
+              {% comment %} <a class="nav-link" href=""> {% endcomment %}
+                {% comment %} <i class="ni ni-user-run text-red"></i> {% endcomment %}
+                {% comment %} <span class="nav-link-text">Logout</span> {% endcomment %}
+              {% comment %} </a> {% endcomment %}
+            {% comment %} </li>             {% endcomment %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="main-content" id="panel">
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row py-4">
+            <div class="col-lg-12 col-12">
+              <h6 class="h2 text-white d-inline-block mb-0">{% block header_title %}{% endblock header_title %}</h6>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      {% block content %}{% endblock content %}
+    </div>
+              
+  </div>
+
+  <script src="{% static 'assets/vendor/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/js-cookie/js.cookie.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script>
+
+
+  <!-- Specific JS goes HERE --> 
+  {% block javascripts %}{% endblock javascripts %}
+
+  <script src="{% static 'assets/js/argon.js' %}'"></script>
+
+</body>
+
+</html>

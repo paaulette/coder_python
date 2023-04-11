@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Cliente
+{% endblock title %}
+
+{% block header_title %}
+Crear cliente
+{% endblock header_title %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header border-0">
+          <h3 class="mb-0">Complete los campos</h3>
+        </div>
+        <div class="row ml-4">
+            {% if form.errors %}
+                <div class="col-md-11">
+                    <div class="alert alert-danger">
+                        <strong>Error:</strong> Por favor corrija el/los siguientes errores.
+                        <ul>
+                            {% for field_errors in form.errors %}
+                                <li>{{ field_errors }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+            {% if message %}
+                <div class="col-md-11">
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endif %}
+            <form role="form" action="{% url 'cliente' %}" method="post" class="col-md-6">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" aria-label="Nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" aria-label="Apellido">
+                </div>
+                <div class="mb-3">
+                    <label for="nacimiento">Fecha de Nacimiento</label>
+                    <input type="text" class="form-control" id="nacimiento" name="nacimiento" placeholder="(aaaa-mm-dd)" aria-label="Nacimiento">
+                </div>
+                <div class="mb-3">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" aria-label="Dirección">
+                </div>
+                <div class="mb-3">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" aria-label="Usuario">
+                </div>
+                <div class="mb-3">
+                    <label for="clave">Contraseña</label>
+                    <input type="password" class="form-control" id="clave" name="clave" placeholder="Contraseña" aria-label="Contraseña">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Crear</button>
+                </div>
+            </form>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col">
+                      <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header border-0">
+                          <h3 class="mb-0">Listado de Clientes</h3>
+                        </div>
+                        <!-- Light table -->
+                        <div class="table-responsive">
+                          <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col" class="sort" data-sort="usuario">Usuario</th>
+                                <th scope="col" class="sort" data-sort="nombre">Nombre</th>
+                                <th scope="col" class="sort" data-sort="apellido">Apellido</th>
+                              </tr>
+                            </thead>
+                            <tbody class="list">
+                              {% for cliente in clientes %}
+                                <tr>
+                                  <th scope="row">
+                                    <div class="media align-items-center">
+                                      <div class="media-body">
+                                        <span class="name mb-0 text-sm">{{ cliente.usuario }}</span>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <td>
+                                    {{ cliente.nombre }}
+                                  </td> 
+                                  <td>
+                                    {{ cliente.apellido }}
+                                  </td>
+                                </tr>
+                              {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% if success_message %}
+<div class="alert alert-success" role="alert">
+  {{ success_message }}
+</div>
+{% endif %}
